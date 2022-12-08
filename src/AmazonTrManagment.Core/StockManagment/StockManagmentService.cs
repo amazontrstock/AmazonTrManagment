@@ -34,8 +34,6 @@ namespace AmazonTrManagment.StockManagment
 			if (!products.Any())
 				return;
 
-			string brTag = "<br/>";
-
 			var bodySb = new StringBuilder();
 			var productScraper = new ProductDetailScraper();
 			var lessStockQuantityProducts = new List<EmailProductDto>();

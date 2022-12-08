@@ -81,11 +81,11 @@ namespace AmazonTrManagment.Web.Startup
                 )
             );
 
-			//services.AddHangfire(config =>
-			//{
-			//	config.UseSqlServerStorage(_appConfiguration.GetConnectionString("Default"));
-			//});
-		}
+            services.AddHangfire(config =>
+            {
+                config.UseSqlServerStorage(_appConfiguration.GetConnectionString("Default"));
+            });
+        }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
@@ -110,13 +110,13 @@ namespace AmazonTrManagment.Web.Startup
 
             app.UseAuthorization();
 
-			//app.UseHangfireServer();
+            app.UseHangfireServer();
 
-			//app.UseHangfireDashboard("/hangfire", new DashboardOptions
-			//{
-			//});
+            app.UseHangfireDashboard("/hangfire", new DashboardOptions
+            {
+            });
 
-			app.UseEndpoints(endpoints =>
+            app.UseEndpoints(endpoints =>
             {
                 endpoints.MapHub<AbpCommonHub>("/signalr");
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");

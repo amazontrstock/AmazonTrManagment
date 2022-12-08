@@ -23,10 +23,10 @@ namespace AmazonTrManagment.Email
 			var mail = new MailMessage
 			{
 				From = new MailAddress(username),
-				Subject = $"",
+				Subject = $"Stoğu Düşenler!",
 				Body = body
 			};
-			mail.To.Add("");
+			mail.To.Add("yutup1071@gmail.com");
 
 			smtpClient.Send(mail);
 		}
